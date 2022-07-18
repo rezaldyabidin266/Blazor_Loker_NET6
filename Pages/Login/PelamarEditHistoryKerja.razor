@@ -1,0 +1,181 @@
+﻿@page "/PelamarEditHistory/{idLoker:int}"
+@using BlazorLoker2022.Shared.Pelamar
+@inherits PelamarEditHistoryKerjaBase
+@layout PelamarQuizLayout
+
+<style>
+    .text-area-custom {
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+        .text-area-custom:focus {
+            box-shadow: none;
+        }
+
+    .border-none {
+        border: none;
+    }
+
+    .form-custom:after {
+        display: block;
+        content: '';
+        border-bottom: solid 2px #019fb6;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .form-custom:hover:after {
+        transform: scaleX(1);
+    }
+
+    .validation-message {
+        color: red;
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<PageTitle>Edit Pengalaman Kerja</PageTitle>
+
+<div class="pelamar-upload">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <div class="nama-upload">
+                    <h1>Edit Pengalaman Kerja</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history-kerja-container">
+        <div class="container">
+            <div class="row history-kerja">
+                <div class="col-md-9 mx-auto">
+                    <h4>Pengalaman Kerja</h4>
+                    <EditForm EditContext="HistoryKerjaContext">
+                        <DataAnnotationsValidator />
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Nama Perusahaan<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarUpdateHistoryKerjaClass.tempatKerja"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.tempatKerja)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Posisi/Jabatan<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarUpdateHistoryKerjaClass.posisi"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.posisi)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tugas/Jobdesk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarUpdateHistoryKerjaClass.tugas"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.tugas)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Salary Terakhir<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxSpinEdit @bind-Value="@pelamarUpdateHistoryKerjaClass.salaryTerakhir"
+                                                BindValueMode="BindValueMode.OnInput"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                Mask="Rp #,#########"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                                MinValue="0" />
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.salaryTerakhir)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tanggal Pertama Masuk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxDateEdit Mask="dd/MMMM/yyyy"
+                                                @bind-Date="@pelamarUpdateHistoryKerjaClass.tglAwal"
+                                                PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                                FirstDayOfWeek="DayOfWeek.Monday"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                        <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                    </DxDateEdit>
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.tglAwal)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tanggal Keluar/Resign Masuk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxDateEdit Mask="dd/MMMM/yyyy"
+                                                @bind-Date="@pelamarUpdateHistoryKerjaClass.tglAkhir"
+                                                PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                                FirstDayOfWeek="DayOfWeek.Monday"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                        <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                    </DxDateEdit>
+                                    <ValidationMessage For="@(() => pelamarUpdateHistoryKerjaClass.tglAkhir)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-apply">
+                            <DxButton Text="Kembali" onclick="history.back()" IconCssClass="fas fa-angle-double-left fa-sm me-1" CssClass="me-2" RenderStyle="ButtonRenderStyle.Secondary" SizeMode="SizeMode.Medium">
+                            </DxButton>
+                            <DxButton Text="Simpan" IconCssClass="fas fa-save fa-sm me-1" Click="kirimEdit" RenderStyle="ButtonRenderStyle.Primary" SizeMode="SizeMode.Medium">
+                            </DxButton>
+                        </div>
+                        <div class="peringatan">
+                            <p>Jangan pernah mengirimkan sandi melalui Formulir.</p>
+                        </div>
+                        <div class="copywriting">
+                            <p><span>Edit </span> Formulir</p>
+                        </div>
+                    </EditForm>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    }

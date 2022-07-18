@@ -1,0 +1,9 @@
+﻿<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+       <BlazorLoker2022.Pages.Component.Error404></BlazorLoker2022.Pages.Component.Error404>
+    </NotFound>
+</Router>

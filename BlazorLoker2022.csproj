@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+		<!--<UseRazorSourceGenerator>false</UseRazorSourceGenerator>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="compilerconfig.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+		<PackageReference Include="Blazored.SessionStorage" Version="2.2.0" />
+		<PackageReference Include="DevExpress.Blazor" Version="21.2.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="wwwroot\image\mobile\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="compilerconfig.json" />
+		<None Include="wwwroot\js\js-component\animeJs\anime-test.js" />
+		<None Include="wwwroot\js\js-component\greenShock\motion_path_test.js" />
+		<None Include="wwwroot\js\js-component\greenShock\mouse_follower.js" />
+		<None Include="wwwroot\js\js-component\greenShock\start-GSAP.js" />
+		<None Include="wwwroot\js\js-component\greenShock\text_typing.js" />
+		<None Include="wwwroot\js\js-component\swiper-js\SwiperInit.js" />
+		<None Include="wwwroot\js\js-component\typeWritter\TypewriterJs.js" />
+		<None Include="wwwroot\js\js-utility\getBrowserUser.js" />
+		<None Include="wwwroot\js\js-utility\getUserAgent.js" />
+		<None Include="wwwroot\js\js-utility\getUserBrowserDimensi.js" />
+		<None Include="wwwroot\js\js-utility\getUserLocation.js" />
+		<None Include="wwwroot\js\js-utility\getUserReferrer.js" />
+		<None Include="wwwroot\js\js-utility\getWindowTracksUser.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="../MyClient">
+			<HintPath>MyClient.dll</HintPath>
+		</Reference>
+		<Reference Include="../MyFungsi">
+			<HintPath>MyFungsi.dll</HintPath>
+		</Reference>
+		<Reference Include="../MyHelper">
+			<HintPath>MyHelper.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>

@@ -1,0 +1,37 @@
+﻿@inherits LayoutComponentBase
+
+<style>
+    .layout-quiz {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .navbar-quiz {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .navbar-quiz i {
+        margin-right: 10px;
+    }
+    .contant{
+        padding-top:3rem;
+    }
+</style>
+
+<div class="layout-quiz">
+    <div class="navbar-quiz">
+        <PelamarNavbarQuiz></PelamarNavbarQuiz>
+    </div>
+    <div class="contant">
+        @Body
+    </div>
+    <divd class="footer-quiz">
+
+    </divd>
+</div>
+
+@code {
+
+}

@@ -1,0 +1,79 @@
+﻿@inherits ComponentPengalamanBase
+
+<div class="pengalaman">
+    <div class="header d-flex flex-wrap align-items-center">
+        <h5 class="">Pengalaman Kerja</h5>
+        <div class="ms-auto mb-2">
+            <DxButton Text="Pengalaman"
+                      IconCssClass="fas fa-plus me-1"
+                      NavigateUrl="PelamarTambahHistory"
+                      RenderStyle="ButtonRenderStyle.Success"></DxButton>
+        </div>
+    </div>
+    @if (pelamarHistoryKerjaList.Count == 0)
+    {
+        <div class="alert alert-primary d-flex align-items-center" role="alert">
+            <i class="fas fa-info-circle fa-lg me-2"></i>
+            <div>
+                Belum menambahkan pengalaman kerja
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row card-pengalaman">
+            @foreach (var item in pelamarHistoryKerjaList)
+            {
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-header d-flex align-items-center">
+                            <h6 class="card-title mb-0">@item.tempatKerja</h6>
+                            <div class="icon ms-auto">
+                                <a @onclick="@(x => goEdit(item.id))" class="me-2 edit"><i class="fas fa-edit"></i></a>
+                                <a @onclick="@(x => deleteHistory(item.id))" class="delete"><i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <ul class="task-list">
+                                <li>
+                                    <i class="task-icon fas fa-user-tie"></i>
+                                    <h6>Posisi/Jabatan</h6>
+                                    <p class="text-muted">@item.posisi</p>
+                                </li>
+                                <li>
+                                    <i class="task-icon fas fa-hand-holding-usd"></i>
+                                    <h6>Salary</h6>
+                                    <p class="text-muted">Rp @item.salaryTerakhir.ToString("n0")</p>
+                                </li>
+                                <li>
+                                    <i class="task-icon fas fa-briefcase"></i>
+                                    <h6>Tugas/Jobdesc</h6>
+                                    <p class="text-muted">@item.tugas</p>
+                                </li>
+                                <li>
+                                    <i class="task-icon fas fa-calendar-plus"></i>
+                                    <h6>Tanggal Masuk</h6>
+                                    <p class="text-muted">@item.tglAwal.ToString("dd-MMMM-yyyy")</p>
+                                </li>
+                                <li>
+                                    <i class="task-icon fas fa-calendar-minus"></i>
+                                    <h6>Tanggal Keluar/Resign</h6>
+                                    <p class="text-muted">@item.tglAkhir.ToString("dd-MMMM-yyyy")</p>
+                                </li>
+                                <li>
+                                    <i class="task-icon fas fa-calendar-alt"></i>
+                                    <h6>Lama Bekerja</h6>
+                                    <p class="text-muted">@item.lamaKerja</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+
+}

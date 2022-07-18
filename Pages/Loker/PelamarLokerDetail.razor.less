@@ -1,0 +1,423 @@
+﻿.header-background {
+    .img-header {
+        height: 250px;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background-position-x: 100px;
+            object-fit: cover
+        }
+    }
+}
+
+.layout-loker {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+
+    .judul-loker {
+        font-size: 2rem;
+        padding-top: 40px;
+        padding-bottom: 18px;
+        font-family: 'Bangers', cursive;
+        text-decoration: underline;
+        color: black;
+        letter-spacing: 2px;
+    }
+
+    .tag-loker {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-left: 32px;
+        padding-right: 32px;
+        background: #F9F9F9;
+        margin-top: 20px;
+        margin-bottom: 48px;
+
+        .tag-loker-info {
+            font-size: 0.98rem;
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-right: 1px solid #B9B9B9;
+
+            label {
+                color: #757575;
+                margin-right: 5px;
+            }
+
+            span {
+            }
+        }
+    }
+
+    .desc-loker {
+        padding-bottom: 22px;
+
+        h3 {
+            color: #202325;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        p {
+            color: #797b7c;
+            line-height: 28px;
+        }
+    }
+
+    .kriteria-loker {
+        h3 {
+            color: #202325;
+            font-weight: 600;
+            line-height: 32px;
+        }
+
+        p {
+            color: #797b7c;
+            line-height: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        margin-bottom: 2rem;
+    }
+
+    .btn-loker {
+        // Color variables (appears count calculates by raw css)
+        @color0: #16987e; // Appears 4 times
+        @color1: #1ab394; // Appears 3 times
+        @color2: #ffffff; // Appears 3 times
+        @color3: #18a689; // Appears 2 times
+        @color4: #1dc5a3; // Appears 2 times
+        @color5: #999999; // Appears 2 times
+
+        .btn {
+            border-radius: 3px;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+
+        .btn-primary.btn-outline {
+            color: @color1;
+        }
+
+        .btn-primary {
+            background-color: @color1;
+            border-color: @color1;
+            color: @color2;
+
+            &:active {
+                background-image: none;
+            }
+        }
+
+        .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary.active:focus {
+            background-color: @color3;
+            border-color: @color3;
+            color: @color2;
+        }
+
+        .btn-primary.active {
+            background-image: none;
+        }
+
+        .open {
+            .dropdown-toggle.btn-primary {
+                background-image: none;
+            }
+        }
+
+        .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary.active[disabled], fieldset[disabled].btn-primary, fieldset[disabled].btn-primary:hover, fieldset[disabled].btn-primary:focus, fieldset[disabled].btn-primary:active, fieldset[disabled].btn-primary.active {
+            background-color: @color4;
+            border-color: @color4;
+        }
+
+        button.dim {
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 600;
+            margin-bottom: 20px !important;
+            margin-right: 10px;
+            padding-top: 6px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+
+            &:active {
+                top: 3px;
+
+                before {
+                    font-size: 50px;
+                    top: 7px;
+                }
+            }
+
+            &:before {
+                color: @color2;
+                display: block;
+                font-size: 50px;
+                font-weight: normal;
+                line-height: 1em;
+                padding-top: 10px;
+            }
+        }
+
+        button.btn-primary.dim {
+            box-shadow: inset 0 0 0 @color0, 0 5px 0 0 @color0, 0 10px 5px @color5;
+
+            &:active {
+                box-shadow: inset 0 0 0 @color0, 0 2px 0 0 @color0, 0 5px 3px @color5;
+            }
+        }
+    }
+}
+
+.loker-detail {
+    .img-atas {
+        height: 250px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .card-atas {
+        .card-ilustrasi {
+            margin-top: -90px;
+            border: none;
+            padding-top: 10px;
+
+            .img-ilus {
+                height: 120px;
+                width: 120px;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .desc {
+        margin-top: 10px;
+        margin-bottom: 40px;
+
+        .judul {
+            font-size: 30px;
+            font-family: 'Arvo', serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .desc-loker {
+            padding-bottom: 22px;
+
+            h3 {
+                color: #202325;
+                font-weight: 400;
+                line-height: 32px;
+                font-size: 22px;
+                font-family: 'Arvo', serif;
+            }
+
+            p {
+                color: #797b7c;
+                line-height: 20px;
+                margin: 0;
+                font-size: 14px;
+            }
+        }
+
+        .kriteria-loker {
+            h3 {
+                color: #202325;
+                font-weight: 400;
+                line-height: 32px;
+                font-family: 'Arvo', serif;
+                font-size: 22px;
+            }
+
+            p {
+                color: #797b7c;
+                line-height: 28px;
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+            }
+
+            margin-bottom: 2rem;
+        }
+
+        .btn-loker {
+            // Color variables (appears count calculates by raw css)
+            @color0: #16987e; // Appears 4 times
+            @color1: #1ab394; // Appears 3 times
+            @color2: #ffffff; // Appears 3 times
+            @color3: #18a689; // Appears 2 times
+            @color4: #1dc5a3; // Appears 2 times
+            @color5: #999999; // Appears 2 times
+
+            .btn {
+                border-radius: 3px;
+
+                &:focus {
+                    outline: none !important;
+                }
+            }
+
+            .btn-primary.btn-outline {
+                color: @color1;
+            }
+
+            .btn-primary {
+                background-color: @color1;
+                border-color: @color1;
+                color: @color2;
+
+                &:active {
+                    background-image: none;
+                }
+            }
+
+            .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary.active:hover, .btn-primary.active:focus {
+                background-color: @color3;
+                border-color: @color3;
+                color: @color2;
+            }
+
+            .btn-primary.active {
+                background-image: none;
+            }
+
+            .open {
+                .dropdown-toggle.btn-primary {
+                    background-image: none;
+                }
+            }
+
+            .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary.active[disabled], fieldset[disabled].btn-primary, fieldset[disabled].btn-primary:hover, fieldset[disabled].btn-primary:focus, fieldset[disabled].btn-primary:active, fieldset[disabled].btn-primary.active {
+                background-color: @color4;
+                border-color: @color4;
+            }
+
+            button.dim {
+                border-radius: 5px;
+                cursor: pointer;
+                display: inline-block;
+                font-weight: 600;
+                margin-bottom: 20px !important;
+                margin-right: 10px;
+                padding-top: 6px;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                text-transform: uppercase;
+
+                &:active {
+                    top: 3px;
+
+                    before {
+                        font-size: 50px;
+                        top: 7px;
+                    }
+                }
+
+                &:before {
+                    color: @color2;
+                    display: block;
+                    font-size: 50px;
+                    font-weight: normal;
+                    line-height: 1em;
+                    padding-top: 10px;
+                }
+            }
+
+            button.btn-primary.dim {
+                box-shadow: inset 0 0 0 @color0, 0 5px 0 0 @color0, 0 10px 5px @color5;
+
+                &:active {
+                    box-shadow: inset 0 0 0 @color0, 0 2px 0 0 @color0, 0 5px 3px @color5;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1399.98px) {
+}
+
+@media (max-width: 1199.98px) {
+}
+
+@media (max-width: 991.98px) {
+}
+
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 575.98px) {
+    .header-background {
+        .img-header {
+            height: 130px;
+            width: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                background-position-x: 100px;
+                object-fit: cover
+            }
+        }
+    }
+
+    .layout-loker {
+        .judul-loker {
+            font-size: 1.5rem;
+            padding-top: 20px;
+            padding-bottom: 18px;
+        }
+    }
+
+    .loker-detail {
+        .img-atas {
+            height: 160px;
+        }
+
+        .card-atas {
+            .card-ilustrasi {
+                padding-top: 5px;
+
+                .img-ilus {
+                    height: 90px;
+                    width: 90px;
+                }
+
+                .judul {
+                    font-size: 2rem;
+                    margin-left: 0;
+                    margin-top: 20px;
+                }
+            }
+        }
+
+        .desc {
+            margin-top: 5px;
+        }
+
+        .kriteria-loker {
+            margin-bottom: 22px !important;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+﻿@page "/pelamarSetting"
+@inherits PelamarSettingBase
+
+<div class="setting">
+    <div class="container-xl">
+        <div class="row">
+            <div class="col-sm-8 col-md-7 col-xl-7 mx-auto">
+                <h2 class="judul">Settings</h2>
+                <DxTabs CssClass="tabs-setting" ScrollMode="TabsScrollMode.NavButtons">
+                    <DxTab Text="Edit Password"></DxTab>
+                </DxTabs>
+                <div class="card card-setting">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Edit kata sandi</h5>
+                    </div>
+                    <div class="card-body ">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Kata sandi saat ini </label>
+                            <DxTextBox NullText="Sandi saat ini"
+                                       CssClass="form-custom"
+                                       InputCssClass="text-area-custom"
+                                       @bind-Text="@passwordLama"
+                                       BindValueMode="BindValueMode.OnInput"
+                                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Kata sandi baru</label>
+                            <DxTextBox NullText="Sandi baru"
+                                       CssClass="form-custom"
+                                       InputCssClass="text-area-custom"
+                                       Password="true"
+                                       @bind-Text="@passwordBaru"
+                                       BindValueMode="BindValueMode.OnInput"
+                                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Verifikasi kata sandi</label>
+                            <DxTextBox NullText="Sandi verifikasi"
+                                       CssClass="form-custom"
+                                       InputCssClass="text-area-custom"
+                                       @bind-Text="@passwordConfirm"
+                                       Password="true"
+                                       BindValueMode="BindValueMode.OnInput"
+                                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                        </div>
+                        <DxButton RenderStyle="ButtonRenderStyle.Primary"
+                                  Text="Simpan Perubahan"
+                                  Click="kirimUbahPassword">
+                        </DxButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

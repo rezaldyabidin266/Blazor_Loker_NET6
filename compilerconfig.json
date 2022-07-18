@@ -1,0 +1,110 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/open-iconic/app.css",
+    "inputFile": "wwwroot/css/open-iconic/app.less"
+  },
+  {
+    "outputFile": "Pages/Pelamar/PelamarLogin.razor.css",
+    "inputFile": "Pages/Pelamar/PelamarLogin.razor.less"
+  },
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "wwwroot/css/app.less"
+  },
+  {
+    "outputFile": "Pages/Index.razor.css",
+    "inputFile": "Pages/Index.razor.less"
+  },
+  {
+    "outputFile": "Pages/Loker/PelamarLoker.razor.css",
+    "inputFile": "Pages/Loker/PelamarLoker.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/Footer.razor.css",
+    "inputFile": "Pages/Component/Footer.razor.less"
+  },
+  {
+    "outputFile": "Pages/Loker/PelamarLokerHome.razor.css",
+    "inputFile": "Pages/Loker/PelamarLokerHome.razor.less"
+  },
+  {
+    "outputFile": "Pages/Loker/PelamarLokerDetail.razor.css",
+    "inputFile": "Pages/Loker/PelamarLokerDetail.razor.less"
+  },
+  {
+    "outputFile": "Pages/Quiz/PelamarQuiz.razor.css",
+    "inputFile": "Pages/Quiz/PelamarQuiz.razor.less"
+  },
+  {
+    "outputFile": "Pages/Biodata/PelamarUpload.razor.css",
+    "inputFile": "Pages/Biodata/PelamarUpload.razor.less"
+  },
+  {
+    "outputFile": "Pages/Loker/PelamarHistoryApply.razor.css",
+    "inputFile": "Pages/Loker/PelamarHistoryApply.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarEditProfile.razor.css",
+    "inputFile": "Pages/Login/PelamarEditProfile.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarRequestOtpResetPassword.razor.css",
+    "inputFile": "Pages/Login/PelamarRequestOtpResetPassword.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarResetPassword.razor.css",
+    "inputFile": "Pages/Login/PelamarResetPassword.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarBuatPAssworBaru.razor.css",
+    "inputFile": "Pages/Login/PelamarBuatPAssworBaru.razor.less"
+  },
+  {
+    "outputFile": "Pages/Quiz/PelamarQuizEdit.razor.css",
+    "inputFile": "Pages/Quiz/PelamarQuizEdit.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/CardHistoryKerja.razor.css",
+    "inputFile": "Pages/Component/CardHistoryKerja.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarEditHistoryKerja.razor.css",
+    "inputFile": "Pages/Login/PelamarEditHistoryKerja.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarTambahHistoryKerja.razor.css",
+    "inputFile": "Pages/Login/PelamarTambahHistoryKerja.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/Footer2.razor.css",
+    "inputFile": "Pages/Component/Footer2.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/Error404.razor.css",
+    "inputFile": "Pages/Component/Error404.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarRegister.razor.css",
+    "inputFile": "Pages/Login/PelamarRegister.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/ComponentEditProfile.razor.css",
+    "inputFile": "Pages/Component/ComponentEditProfile.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/ComponentPengalaman.razor.css",
+    "inputFile": "Pages/Component/ComponentPengalaman.razor.less"
+  },
+  {
+    "outputFile": "Pages/Component/ComponentHistoryApply.razor.css",
+    "inputFile": "Pages/Component/ComponentHistoryApply.razor.less"
+  },
+  {
+    "outputFile": "Pages/Login/PelamarSetting.razor.css",
+    "inputFile": "Pages/Login/PelamarSetting.razor.less"
+  },
+  {
+    "outputFile": "Pages/Offline/Offline.razor.css",
+    "inputFile": "Pages/Offline/Offline.razor.less"
+  }
+]

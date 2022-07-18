@@ -1,0 +1,419 @@
+﻿@page "/PelamarEdit"
+@inherits PelamarEditProfileBase
+
+<PageTitle>Pelamar Edit</PageTitle>
+
+<style>
+    .fileUploaderProfile {
+        display: none;
+    }
+</style>
+
+<div class="container container-atas">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="profile-card-4 z-depth-3">
+                <div class="card">
+                    <div class="card-body text-center bg-dark">
+                        <div class="img-avatar" id="btnUploadFoto">
+                            <img class="rounded-circle img-fluid" src="@foto">
+                            <DxUpload Name="MyFile"
+                                      Visible="@UploadVisible"
+                                      ExternalSelectButtonCssSelector="#btnUploadFoto"
+                                      ExternalDropZoneCssSelector="#DropZoneUploadFoto"
+                                      MaxFileSize="15000000"
+                                      ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                      UploadUrl="@Url(urlFoto)"
+                                      SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                      FileUploadStart="@SettingHeaderFoto"
+                                      FileUploadStarted="@OnUploadStartedFoto"
+                                      FileUploadError="@ErrorHandling"
+                                      FileUploadProgressChanged="@progressUploadFoto"
+                                      FileUploaded="@UploadSuksesFoto"
+                                      CssClass="fileUploaderProfile"
+                                      AllowMultiFileUpload="true"
+                                      ShowFileList="false"
+                                      AllowedFileExtensions="@(new List<string> { ".jpg", ".jpeg", ".png" })"
+                                      AcceptedFileTypes="@(new List<string> { ".jpg", ".jpeg", ".png" })">
+                            </DxUpload>
+                        </div>
+                        <h5 class="mb-1 text-white">@getPelamarData.nama</h5>
+                        <h6 class="text-light">@umur</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2 d-md-block mb-2">
+                            <button class="btn btn-success btn-sm" type="button" id="btnUploadFotoTombol">
+                                @if (spinner)
+                                {
+                                    <div class="spinner-border text-white spinner-border-sm me-1" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
+                                Upload Foto
+                                <DxUpload Name="MyFile"
+                                          Visible="@UploadVisible"
+                                          ExternalSelectButtonCssSelector="#btnUploadFotoTombol"
+                                          ExternalDropZoneCssSelector="#DropZoneUploadFoto"
+                                          MaxFileSize="15000000"
+                                          ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                          UploadUrl="@Url(urlFoto)"
+                                          SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                          FileUploadStart="@SettingHeaderFoto"
+                                          FileUploadStarted="@OnUploadStartedFoto"
+                                          FileUploadError="@ErrorHandling"
+                                          FileUploadProgressChanged="@progressUploadFoto"
+                                          FileUploaded="@UploadSuksesFoto"
+                                          CssClass="fileUploaderProfile"
+                                          AllowMultiFileUpload="true"
+                                          ShowFileList="false"
+                                          AllowedFileExtensions="@(new List<string> { ".jpg", ".jpeg", ".png" })"
+                                          AcceptedFileTypes="@(new List<string> { ".jpg", ".jpeg", ".png" })">
+                                </DxUpload>
+                            </button>
+                            <button class="btn btn-danger btn-sm" type="button" id="btnUploadCv">
+                                @if (spinnerCv)
+                                {
+                                    <div class="spinner-border text-white spinner-border-sm me-1" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                }
+                                Upload Cv/Resume
+                                <DxUpload Name="MyFile"
+                                          Visible="@UploadVisible"
+                                          ExternalSelectButtonCssSelector="#btnUploadCv"
+                                          ExternalDropZoneCssSelector="#DropZoneUploadCv"
+                                          MaxFileSize="15000000"
+                                          ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                          UploadUrl="@Url(urlCv)"
+                                          SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                          FileUploadStart="@SettingHeaderCv"
+                                          FileUploadError="@ErrorHandling"
+                                          FileUploadStarted="@OnUploadStartedCv"
+                                          FileUploadProgressChanged="@progressUploadCv"
+                                          FileUploaded="@UploadSuksesCv"
+                                          CssClass="fileUploaderProfile"
+                                          AllowMultiFileUpload="true"
+                                          ShowFileList="false"
+                                          AllowedFileExtensions="@(new List<string> { ".pdf" })"
+                                          AcceptedFileTypes="@(new List<string> {".pdf" })">
+                                </DxUpload>
+                            </button>
+                        </div>
+                        <ul class="list-group shadow-none">
+                            <li class="list-group-item">
+                                <div class="list-icon">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="list-details">
+                                    <span>@getPelamarData.noTlp</span>
+                                    <small>Phone Number</small>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="list-icon">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </div>
+                                <div class="list-details">
+                                    <span>@getPelamarData.email</span>
+                                    <small>Email Address</small>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center flex-wrap">
+                                <div class="list-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <div class="list-details">
+                                    <span>Cv/Resume</span>
+                                    <small>Format .Pdf</small>
+                                </div>
+                                <a class="btn-dowloand-cv btn btn-sm btn-link" download="resume_saya.pdf" href="@cv">Dowloand Cv</a>
+                            </li>
+                        </ul>
+                        <div class="row text-center mt-4">
+                            <div class="col p-2">
+                                <h4 class="mb-1 line-height-5">@historyApply.Count()</h4>
+                                <small class="mb-0 font-weight-bold">Loker Apply</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card card-content z-depth-3">
+                <div class="card-body">
+                    <DxTabs ScrollMode="TabsScrollMode.NavButtons"
+                            @bind-ActiveTabIndex="@ActiveTabIndex">
+                        <DxTab Text="Profile"></DxTab>
+                        <DxTab Text="Edit Profile"></DxTab>
+                        <DxTab Text="Pengalaman"></DxTab>
+                    </DxTabs>
+                    @switch (ActiveTabIndex)
+                    {
+                        case 0:
+                            <div class="row user-profile">
+                                <div class="col-lg-12">
+                                    <h5 class="user-judul">User Profile</h5>
+                                    <h6>Bio</h6>
+                                    <p class="text">
+                                        @getPelamarData.note
+                                    </p>
+                                    <h6>Alamat</h6>
+                                    <p class="text">
+                                        @getPelamarData.alamat
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h5 class="mt-2 aktifitas">
+                                        <span class="fas fa-newspaper float-right"></span>
+                                        Aktivitas Pelamar
+                                    </h5>
+                                    <BlazorLoker2022.Pages.Component.ComponentHistoryApply></BlazorLoker2022.Pages.Component.ComponentHistoryApply>
+                                </div>
+                            </div>
+                            break;
+                        case 1:
+                            <div class="edit-profile">
+                                <BlazorLoker2022.Pages.Component.ComponentEditProfile></BlazorLoker2022.Pages.Component.ComponentEditProfile>
+                            </div>
+                            break;
+                        case 2:
+                            <div class="pengalaman">
+                                <BlazorLoker2022.Pages.Component.ComponentPengalaman></BlazorLoker2022.Pages.Component.ComponentPengalaman>
+                            </div>
+                            break;
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+<div class="profile">
+    <div class="container">
+        <h1 class="h3">Settings</h1>
+        <div class="row">
+            <div class="col-md-5 col-xl-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Profile Settings</h5>
+                    </div>
+                    <div class="list-group list-group-flush" role="tablist">
+                        <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#account" role="tab">
+                            Profile
+                        </a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#password" role="tab">
+                            Password
+                        </a>
+                        <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#historyKerja" role="tab">
+                            Pengalaman Kerja
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-xl-8">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="account" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Pelamar Profile</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <EditForm EditContext="updatePelamarContext">
+                                                <DataAnnotationsValidator />
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+                                                    <DxTextBox NullText="Jawaban Anda"
+                                                               CssClass="form-custom"
+                                                               InputCssClass="text-area-custom"
+                                                               @bind-Text="@getPelamarData.nama"
+                                                               BindValueMode="BindValueMode.OnInput"
+                                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                                    <DxTextBox NullText="Jawaban Anda"
+                                                               CssClass="form-custom"
+                                                               InputCssClass="text-area-custom"
+                                                               @bind-Text="@getPelamarData.email"
+                                                               BindValueMode="BindValueMode.OnInput"
+                                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Telepon</label>
+                                                    <DxTextBox NullText="Jawaban Anda"
+                                                               CssClass="form-custom"
+                                                               InputCssClass="text-area-custom"
+                                                               @bind-Text="@getPelamarData.noTlp"
+                                                               BindValueMode="BindValueMode.OnInput"
+                                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Tempat Lahir</label>
+                                                    <DxTextBox NullText="Jawaban Anda"
+                                                               CssClass="form-custom"
+                                                               InputCssClass="text-area-custom"
+                                                               @bind-Text="@getPelamarData.tempatLahir"
+                                                               BindValueMode="BindValueMode.OnInput"
+                                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
+                                                    <DxDateEdit Mask="dd/MMMM/yyyy"
+                                                                @bind-Date="@getPelamarData.tglLahir"
+                                                                PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                                                FirstDayOfWeek="DayOfWeek.Monday"
+                                                                CssClass="form-custom"
+                                                                InputCssClass="text-area-custom"
+                                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                                        <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                                    </DxDateEdit>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Tempat Lahir</label>
+                                                    <DxMemo Rows="3"
+                                                            NullText="Jawaban Anda"
+                                                            CssClass="form-custom"
+                                                            TextAreaCssClass="text-area-custom"
+                                                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                                            @bind-Text="@getPelamarData.alamat" />
+                                                </div>
+                                            </EditForm>
+                                            <DxButton RenderStyle="ButtonRenderStyle.Primary"
+                                                      Text="Simpan perubahan"
+                                                      Click="kirimUpdatePelamar">
+                                            </DxButton>
+                                            <hr />
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="text-center">
+                                                <img src="@foto" class="img-foto rounded-circle img-responsive mt-2" width="128" height="128">
+                                                <div class="mt-3">
+                                                    <a id="btnUploadFoto" class="btn btn-sm btn-primary">
+                                                        <i class="fa fa-upload me-2"></i>
+                                                        Upload Foto
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="uploadHide mb-2">
+                                                <DxUpload Name="MyFile"
+                                                          Visible="@UploadVisible"
+                                                          ExternalSelectButtonCssSelector="#btnUploadFoto"
+                                                          ExternalDropZoneCssSelector="#DropZoneUploadFoto"
+                                                          MaxFileSize="15000000"
+                                                          ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                                          UploadUrl="@Url(urlFoto)"
+                                                          SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                                          FileUploadStart="@SettingHeaderFoto"
+                                                          FileUploadError="@ErrorHandling"
+                                                          CssClass="w-100"
+                                                          AllowMultiFileUpload="true"
+                                                          ShowFileList="false"
+                                                          FileUploaded="@UploadSuksesFoto"
+                                                          AllowedFileExtensions="@(new List<string> { ".jpg", ".jpeg", ".png" })"
+                                                          AcceptedFileTypes="@(new List<string> { ".jpg", ".jpeg", ".png" })">
+                                                </DxUpload>
+                                            </div>
+                                            <small class="">Untuk hasil terbaik, gunakan gambar dengan ukuran minimal 128 x 128 piksel dalam format .jpg, .png, .jpeg</small>
+                                            <hr />
+                                            <div class="text-center mt-3">
+                                                @if (cv != null)
+                                                {
+                                                    <DxTextBox Text="Sudah Upload Cv/Resume" ReadOnly="true" />
+                                                }
+                                                else
+                                                {
+                                                    <DxTextBox Text="Belum Upload Cv/Resume" ReadOnly="true" />
+                                                }
+
+                                                <div class="mt-3">
+                                                    <a id="btnUploadCv" class="btn btn-sm btn-primary">
+                                                        <i class="fa fa-upload me-2"></i>
+                                                        Upload CV
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="uploadHide mb-2">
+                                                <DxUpload Name="MyFile"
+                                                          Visible="@UploadVisible"
+                                                          ExternalSelectButtonCssSelector="#btnUploadCv"
+                                                          ExternalDropZoneCssSelector="#DropZoneUploadCv"
+                                                          MaxFileSize="15000000"
+                                                          ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                                          UploadUrl="@Url(urlCv)"
+                                                          SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                                          FileUploadStart="@SettingHeaderCv"
+                                                          FileUploadError="@ErrorHandling"
+                                                          CssClass="w-100"
+                                                          AllowMultiFileUpload="true"
+                                                          ShowFileList="false"
+                                                          FileUploaded="@UploadSuksesCv"
+                                                          AllowedFileExtensions="@(new List<string> { ".pdf" })"
+                                                          AcceptedFileTypes="@(new List<string> {".pdf" })">
+                                                </DxUpload>
+                                            </div>
+                                            <small class="">Untuk mengupload Cv/Resume gunakan format .pdf</small>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="password" role="tabpanel">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Ubah kata sandi</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Kata sandi saat ini </label>
+                                    <DxTextBox NullText="Sandi saat ini"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@passwordLama"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Kata sandi baru</label>
+                                    <DxTextBox NullText="Sandi baru"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               Password="true"
+                                               @bind-Text="@passwordBaru"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Verifikasi kata sandi</label>
+                                    <DxTextBox NullText="Sandi verifikasi"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@passwordConfirm"
+                                               Password="true"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                </div>
+                                <DxButton RenderStyle="ButtonRenderStyle.Primary"
+                                          Text="Simpan Perubahan"
+                                          Click="kirimUbahPassword">
+                                </DxButton>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="historyKerja" role="tabpanel">
+                        <BlazorLoker2022.Pages.Component.CardHistoryKerja></BlazorLoker2022.Pages.Component.CardHistoryKerja>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+@code {
+
+}

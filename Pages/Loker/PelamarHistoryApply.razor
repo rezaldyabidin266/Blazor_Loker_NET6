@@ -1,0 +1,86 @@
+﻿@page "/pelamarHistoryApply"
+@inherits PelamarHistoryApplyBase
+
+<PageTitle>History Lamaran</PageTitle>
+
+<style>
+
+</style>
+
+<div class="history-apply-container border">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="osahan-account-page-left shadow-sm bg-white h-100">
+                    <div class="osahan-padding">
+                        <div class="osahan-user text-center">
+                            <div class="osahan-user-media">
+                                <img class="mb-3 rounded-circle shadow-sm mt-1" src="@foto">
+                                <div class="osahan-user-media-body">
+                                    <h6 class="mb-2">@getPelamarData.nama</h6>
+                                    <p class="mb-1 tlpn"><i class="fas fa-phone-alt me-2"></i>@getPelamarData.noTlp</p>
+                                    <p class="gmail"><i class="fas fa-inbox me-2"></i>@getPelamarData.email</p>
+                                    <DxButton Text="Edit Profile"
+                                              NavigateUrl="PelamarEdit"
+                                              CssClass="mb-2"
+                                              RenderStyle="ButtonRenderStyle.Primary"
+                                              RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                    </DxButton>
+                                    <a class="btn btn-sm btn-success mb-2" download="resume_saya.pdf" href="@cv">Dowloand Cv/Resume</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="rinci nav nav-tabs flex-column" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="addresses-tab" data-toggle="tab" role="tab" aria-controls="addresses" aria-selected="false"><i class="fas fa-map-marker-alt"></i> @getPelamarData.alamat</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="osahan-account-page-right shadow-sm bg-white p-4 h-100">
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane card-history fade active show" id="addresses" role="tabpanel" aria-labelledby="addresses-tab">
+                            <h4 class="mt-0 mb-4">History Lamaran</h4>
+                            <div class="row">
+                                @foreach (var item in historyApply)
+                                {
+                                    <div class="col-md-6">
+                                        <div class="bg-white card history-item mb-4 shadow-sm">
+                                            <div class="members p-4">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h6 class="mb-1 d-flex">@item.judulLowongan </h6>
+                                                        <p>
+                                                            @item.hasilInterview
+                                                        </p>
+                                                        <p class="tgl-apply">
+                                                            Tanggal Apply: @item.tglApply.ToString("dd-MMMM-yyyy")
+                                                        </p>
+                                                        <p class="mb-0">
+                                                            <DxButton Text="Edit Jawaban"
+                                                                  Click="() => goEdit(item.lowonganId)"
+                                                                  RenderStyle="ButtonRenderStyle.Info"
+                                                                  RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                                            </DxButton>
+
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}

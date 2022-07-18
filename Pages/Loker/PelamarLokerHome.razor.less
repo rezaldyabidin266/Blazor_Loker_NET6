@@ -1,0 +1,166 @@
+﻿// Color variables (appears count calculates by raw css)
+@color0: #ffffff; // Appears 9 times
+@color1: #ffb900; // Appears 3 times
+@color2: #ffb900; // Appears 3 times
+@color3: #333333; // Appears 2 times
+
+// Width variables (appears count calculates by raw css)
+@width0: 55px; // Appears 2 times
+
+// Height variables (appears count calculates by raw css)
+@height2: 55px; // Appears 2 times
+
+.header-background {
+    .img-header {
+        height: 250px;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background-position-x: 100px;
+            object-fit: cover
+        }
+    }
+}
+
+ul.timeline {
+    list-style-type: none;
+    padding-left: 1.5rem;
+    position: relative;
+
+    &:before {
+        background: @color0;
+        border-radius: 1rem;
+        content: ' ';
+        display: inline-block;
+        height: 100%;
+        left: 16px;
+        position: absolute;
+        width: 4px;
+        z-index: 400;
+    }
+}
+
+li.timeline-item {
+    margin: 20px 0;
+
+    &:before {
+        background: @color1;
+        border-radius: 50%;
+        border: 3px solid @color0;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        content: ' ';
+        display: inline-block;
+        height: 14px;
+        left: 11px;
+        position: absolute;
+        width: 14px;
+        z-index: 400;
+    }
+}
+
+.timeline-arrow {
+    border-bottom: 0.5rem solid transparent;
+    border-right: 0.5rem solid @color0;
+    border-top: 0.5rem solid transparent;
+    display: block;
+    left: 2rem;
+    position: absolute;
+}
+
+.panel-group {
+    background: @color0 none repeat scroll 0 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.04);
+    margin-bottom: 0;
+    padding: 30px;
+}
+
+#accordion {
+    .panel {
+        border-radius: 0;
+        border: medium none;
+        box-shadow: none;
+        margin: 0 0 15px 10px;
+    }
+
+    .panel-heading {
+        border-radius: 30px;
+        padding: 0;
+    }
+
+    .panel-title {
+        a {
+            background: @color2 none repeat scroll 0 0;
+            border-radius: 30px;
+            border: 1px solid transparent;
+            color: @color0;
+            display: block;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 12px 20px 12px 50px;
+            position: relative;
+            transition: all 0.3s ease 0s;
+
+            &:after {
+                background: @color2 none repeat scroll 0 0;
+                border-radius: 50%;
+                border: 1px solid transparent;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.58);
+                color: @color0;
+                content: "\f107";
+                font-family: "Font Awesome 5 Pro" !important;
+                font-size: 25px;
+                height: @height2;
+                left: -20px;
+                line-height: @height2;
+                position: absolute;
+                text-align: center;
+                top: -5px;
+                transition: all 0.3s ease 0s;
+                width: @width0;
+            }
+        }
+
+        a.collapsed {
+            background: @color0 none repeat scroll 0 0;
+            border: 1px solid @color1;
+            color: @color3;
+
+            &:after {
+                background: @color0 none repeat scroll 0 0;
+                border-radius: 50%;
+                border: 1px solid @color1;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.58);
+                box-shadow: none;
+                color: @color0;
+                color: @color3;
+                content: "\f105";
+                font-family: "Font Awesome 5 Pro";
+                font-family: fontawesome;
+                font-size: 25px;
+                height: @height2;
+                left: -20px;
+                line-height: @height2;
+                position: absolute;
+                text-align: center;
+                top: -5px;
+                transition: all 0.3s ease 0s;
+                width: @width0;
+            }
+        }
+    }
+
+    .panel-body {
+        background: transparent none repeat scroll 0 0;
+        border-top: medium none;
+        padding: 20px 25px 10px 9px;
+        position: relative;
+
+        p {
+            border-left: 1px dashed #8c8c8c;
+            padding-left: 25px;
+        }
+    }
+}

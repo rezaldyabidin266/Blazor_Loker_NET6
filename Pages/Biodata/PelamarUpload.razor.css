@@ -1,0 +1,193 @@
+﻿.pelamar-upload .nama-upload {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.pelamar-upload .nama-upload h1 {
+  font-family: 'Lato', sans-serif;
+  color: #515357;
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0px;
+  margin-bottom: 20px;
+}
+.pelamar-upload .upload-container {
+  background: #F9F9F9;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.pelamar-upload .upload-container .upload h4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #515357;
+}
+.pelamar-upload .upload-container .upload .card-upload {
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-pertanyaan {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  color: #202124;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-pertanyaan span {
+  color: #d93025;
+  padding-left: 0.25em;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-jawaban {
+  padding-top: 14px;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-jawaban .btn-custom {
+  text-transform: uppercase;
+  color: #9696a2;
+  border-color: #e2e2e2;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-jawaban .btn-custom span {
+  margin-right: 5px;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-jawaban .btn-custom:hover {
+  color: black;
+}
+.pelamar-upload .upload-container .upload .card-upload .card-body .card-jawaban .uploadHide {
+  padding-top: 14px;
+  width: 220px;
+}
+.pelamar-upload .history-kerja-container {
+  background: #F9F9F9;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.pelamar-upload .history-kerja-container .history-kerja h4 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #515357;
+}
+.pelamar-upload .history-kerja-container .history-kerja .card-history {
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+.pelamar-upload .history-kerja-container .history-kerja .card-history .card-body .card-pertanyaan {
+  letter-spacing: 0.1px;
+  line-height: 24px;
+  color: #202124;
+}
+.pelamar-upload .history-kerja-container .history-kerja .card-history .card-body .card-pertanyaan span {
+  color: #d93025;
+  padding-left: 0.25em;
+}
+.pelamar-upload .history-kerja-container .history-kerja .card-history .card-jawaban {
+  padding-top: 14px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .button-apply {
+  padding-bottom: 10px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .peringatan p {
+  font-family: 'Roboto Slab', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  line-height: 16px;
+  color: #70757a;
+  color: rgba(0, 0, 0, 0.66);
+  margin: 0;
+  margin-top: 8px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item {
+  padding: 0;
+  margin: 0;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item {
+  margin-bottom: 12px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body {
+  padding-left: 0;
+  padding-bottom: 30px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list {
+  list-style: none;
+  margin: 0;
+  padding: 30px 0 0;
+  position: relative;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list:after {
+  background: #ecedef;
+  content: "";
+  height: 100%;
+  left: 30px;
+  position: absolute;
+  top: 0;
+  width: 2px;
+  z-index: 1;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list li {
+  margin-bottom: 30px;
+  padding-left: 55px;
+  position: relative;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list li:last-child {
+  margin-bottom: 0;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list li h6 {
+  letter-spacing: 0.1px;
+  line-height: 12px;
+  color: #202124;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list li p {
+  margin: 0;
+  padding: 0;
+}
+.pelamar-upload .history-kerja-container .history-kerja .history-item .item .card-item .card-body .task-list li .task-icon {
+  -webkit-box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  background: #ececec;
+  border-radius: 50%;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  height: 27px;
+  width: 27px;
+  left: 17px;
+  padding-left: 7px;
+  padding-top: 6px;
+  position: absolute;
+  top: 0px;
+  z-index: 2;
+  color: #515357;
+}
+.pelamar-upload .history-kerja-container .history-kerja .copywriting {
+  margin-top: 24px;
+  margin-right: 0px;
+  margin-bottom: 24px;
+  margin-left: 0px;
+  text-align: center;
+}
+.pelamar-upload .history-kerja-container .history-kerja .copywriting p {
+  color: black;
+  opacity: 0.55;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 400;
+  font-size: 22.1px;
+}
+.pelamar-upload .history-kerja-container .history-kerja .copywriting p span {
+  color: #6C6C6E;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+}

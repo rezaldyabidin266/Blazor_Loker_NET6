@@ -1,0 +1,231 @@
+﻿@page "/Quiz/{idLoker:int}"
+@using BlazorLoker2022.Resource.Quiz
+@using BlazorLoker2022.Shared.Pelamar
+@inherits PelamarQuizBase
+@layout PelamarQuizLayout
+
+<style>
+    .text-area-custom {
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+        .text-area-custom:focus {
+            box-shadow: none;
+        }
+
+    .border-none {
+        border: none;
+    }
+
+    .form-custom:after {
+        display: block;
+        content: '';
+        border-bottom: solid 2px #019fb6;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .form-custom:hover:after {
+        transform: scaleX(1);
+    }
+</style>
+
+<PageTitle>Quiz</PageTitle>
+
+<div class="quiz">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <div class="nama-quiz">
+                    <h1>@infoLoker.judul - Brasil Loker</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="quiz-soal">
+        <div class="container">
+            <div class="row soal">
+                <div class="col-md-9 mx-auto">
+                    <h4>Quiz Wawancara</h4>
+                    @foreach (var item in quiz)
+                    {
+                        @switch (item.bentukIsian)
+                        {
+                            case "Paragraf":
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <DxMemo Rows="3"
+                                        NullText="Jawaban Anda"
+                                        CssClass="form-custom"
+                                        TextAreaCssClass="text-area-custom"
+                                        ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                        TextChanged="@(x => item.jawaban = x.ToString())" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                break;
+                            case "Simple Text":
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <DxTextBox NullText="Jawaban Anda"
+                                           CssClass="form-custom"
+                                           InputCssClass="text-area-custom"
+                                           ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                           TextChanged="@(x => item.jawaban = x.ToString())" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            case "Checkbox":
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <DxTagBox Data="@item.formIsianJawabanDetailResponses"
+                                          TData="FormIsianJawabanDetailResponse"
+                                          TValue="FormIsianJawabanDetailResponse"
+                                          TextFieldName="@nameof(FormIsianJawabanDetailResponse.keterangan)"
+                                          CssClass="form-custom"
+                                          NullText="Jawaban Anda"
+                                          SelectedItemsChanged="@((x) => {
+                                                               var result = x.Cast<FormIsianJawabanDetailResponse>().ToList();
+                                                                              string arrayConver = string.Join(",", result.Select(y => y.keterangan));
+                                                                              item.jawaban = arrayConver;
+                                                                })"
+                                          ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                            </DxTagBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            case "Yes No Question":
+
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <div class="custom-radio">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" value="Yes" @onchange="@(x => item.jawaban = x.Value.ToString())" type="radio" name="@item.detailJawabanId">
+                                                    <label class="form-check-label" for="@item.detailJawabanId">
+                                                        Ya
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" value="No" @onchange="@(x => item.jawaban = x.Value.ToString())" type="radio" name="@item.detailJawabanId">
+                                                    <label class="form-check-label" for="@item.detailJawabanId">
+                                                        Tidak
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            case "Nominal":
+
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <DxSpinEdit ValueChanged="@((int x) => item.jawaban = x.ToString())"
+                                            CssClass="form-custom"
+                                            InputCssClass="text-area-custom"
+                                            Mask="Rp #,#########"
+                                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                            MinValue="0" />
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            case "Tanggal":
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            @{
+                                                var date = Convert.ToDateTime(item.jawaban);
+                                            }
+                                            <DxDateEdit Mask="dd/MMMM/yyyy"
+                                            Date="DateToday"
+                                            PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                            FirstDayOfWeek="DayOfWeek.Monday"
+                                            CssClass="form-custom"
+                                            InputCssClass="text-area-custom"
+                                            ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                            DateChanged="@((DateTime NewValue) => {
+                                                            DateToday = NewValue;
+                                                            item.jawaban = DateToday.ToString("yyyy-MM-dd");
+                                                                 StateHasChanged();
+                                                 })">
+                                                <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                            </DxDateEdit>
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                            case "Pilihan Ganda":
+
+                                <div class="card card-quiz">
+                                    <div class="card-body">
+                                        <div class="card-pertanyaan">
+                                            @item.pertanyaan<span class="star">*</span>
+                                        </div>
+                                        <div class="card-jawaban">
+                                            <div class="custom-radio">
+                                                @foreach (var ganda in item.formIsianJawabanDetailResponses)
+                                                {
+                                                    <div class="form-check d-flex align-items-center ">
+                                                        <input class="form-check-input" value="@ganda.keterangan" @onchange="@(x => item.jawaban = x.Value.ToString())" type="radio" name="@item.detailJawabanId">
+                                                        <label class="form-check-label" for="@item.detailJawabanId">
+                                                            @ganda.keterangan
+                                                        </label>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                break;
+                        }
+                    }
+                    <div class="button-apply">
+                        <DxButton Text="Kembali" onclick="history.back()" IconCssClass="fas fa-angle-double-left fa-sm me-1" CssClass="me-2" RenderStyle="ButtonRenderStyle.Secondary" SizeMode="SizeMode.Medium">
+                        </DxButton>
+                        <DxButton Text="Kirim" IconCssClass="fas fa-paper-plane fa-sm me-1" Click="kirimApply" RenderStyle="ButtonRenderStyle.Primary" SizeMode="SizeMode.Medium">
+                        </DxButton>
+                    </div>
+                    <div class="peringatan">
+                        <p>Jangan pernah mengirimkan sandi melalui Formulir.</p>
+                    </div>
+                    <div class="copywriting">
+                        <p><span>@infoLoker.judul</span> Formulir</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+}

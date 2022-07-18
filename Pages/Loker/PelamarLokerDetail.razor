@@ -1,0 +1,91 @@
+﻿@page "/lokerDetail/{idLoker:int}"
+@inherits PelamarLokerDetailBase
+
+<PageTitle>Loker Detail</PageTitle>
+
+<style>
+</style>
+
+<div class="loker-detail">
+    <div class="img-atas">
+        <img class="img-fluid" src="@backgroundApi" />
+    </div>
+    <div class="container-xl">
+        <div class="row card-atas">
+            <div class="col-7 col-sm-8 col-md-7 col-lg-5 col-xl-4 mx-auto">
+                <div class="card card-ilustrasi">
+                    <div class="card-body d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="img-ilus">
+                            <img class="img-fluid" src="@ilustrasiApi" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row desc">
+            <div class="col-lg-8 mx-auto">
+                <div class="judul">
+                    @infoLoker.judul
+                </div>
+                <div class="desc-loker">
+                    <h3>Deskripsi Pekerjaan:</h3>
+                    <p>
+                        @infoLoker.keterangan.
+                    </p>
+                </div>
+                <div class="kriteria-loker">
+                    <h3>Persyaratan:</h3>
+                    @foreach (var item in kriteria)
+                    {
+                        <p>● @item</p>
+                    }
+                </div>
+                <div class="btn-loker">
+                    <button @onclick="goQuiz" class="btn btn-primary dim" type="button"><i class="fas fa-paper-plane me-2"></i>Daftar Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*<div class="header-background">
+    <div class="img-header">
+
+    <img src="@backgroundApi" />
+    </div>
+    </div>
+
+    <div class="container">
+    <div class="row layout-loker">
+    <div class="col-md-10 mx-auto">
+    <div class="judul-loker">
+    @infoLoker.judul
+    </div>
+    </div>
+    <div class="col-md-10 mx-auto">
+    <div class="desc-loker">
+    <h3>Deskripsi Pekerjaan:</h3>
+    <p>
+    @infoLoker.keterangan
+    </p>
+    </div>
+    </div>
+    <div class="col-md-10 mx-auto">
+    <div class="kriteria-loker">
+    <h3>Persyaratan:</h3>
+    @foreach (var item in kriteria)
+    {
+    <p>● @item</p>
+    }
+    </div>
+    </div>
+    <div class="col-md-10 mx-auto">
+    <div class="btn-loker">
+    <button @onclick="goQuiz" class="btn btn-primary dim" type="button"><i class="fas fa-paper-plane me-2"></i>Daftar Sekarang</button>
+    </div>
+    </div>
+    </div>
+    </div>*@
+@code {
+
+}
+

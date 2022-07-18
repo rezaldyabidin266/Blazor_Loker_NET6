@@ -1,0 +1,26 @@
+.history[b-hc89vxx64q] {
+  margin-top: 20px;
+  padding-bottom: 15px;
+}
+.history .history-content .his[b-hc89vxx64q] {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  border-radius: 0.2rem;
+}
+.history .history-content .his h6[b-hc89vxx64q] {
+  font-family: 'Bree Serif', serif;
+  font-size: 15px;
+}
+.history .button-edit-mobile[b-hc89vxx64q] {
+  display: none !important;
+}
+@media (max-width: 575.98px) {
+  .history .button-edit[b-hc89vxx64q] {
+    display: none;
+  }
+  .history .button-edit-mobile[b-hc89vxx64q] {
+    display: flex !important;
+  }
+}

@@ -1,0 +1,109 @@
+﻿@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <!-- Contact Info-->
+                <section class="widget widget-light-skin">
+                    <h3 class="widget-title">Get In Touch With Us</h3>
+@*                    <p class="text-white">Phone: 0857-7608-4043</p>*@
+                    <ul class="list-unstyled text-sm text-white">
+                    </ul>
+                    <p>
+                        <a class="navi-link-light" href="https://mail.google.com/mail/?view=cm&fs=1&to=brasilcopycenter@gmail.com">Gmail: brasilcopycenter@gmail.com</a>
+                    </p>
+                @*    <a class="social-button shape-circle sb-light-skin" href="https://wa.me/6285776084043">
+                        <i class="fab fa-whatsapp-square sb-wa"></i>
+                    </a>*@
+                    <a class="social-button shape-circle sb-light-skin" href="#">
+                        <i class="fab fa-instagram sb-ig"></i>
+                    </a>
+                    <a class="social-button shape-circle sb-light-skin" href="https://www.facebook.com/Esbrasilbgr">
+                        <i class="fab fa-facebook-square sb-gmail"></i>
+                    </a>
+                </section>
+            </div>
+      @*      <div class="col-lg-3 col-md-6">
+            
+                <section class="widget widget-light-skin">
+                    <h3 class="widget-title">Our Mobile App</h3>
+                    <a class="market-button apple-button mb-light-skin" href="#">
+                        <span class="mb-subtitle">Download on the</span>
+                        <span class="mb-title">App Store</span>
+                    </a>
+                    <a class="market-button google-button mb-light-skin" href="#">
+                        <span class="mb-subtitle">Download on the</span>
+                        <span class="mb-title">Google Play</span>
+                    </a>
+                        <a class="market-button windows-button mb-light-skin" href="#">
+                        <span class="mb-subtitle">Download on the</span>
+                        <span class="mb-title">Windows Store</span>
+                        </a>
+                </section>
+            </div>*@
+            <div class="col-lg-3 col-md-6">
+                <!-- About Us-->
+                <section class="widget widget-links widget-light-skin">
+                    <h3 class="widget-title">About Us</h3>
+                    <ul>
+                        <li><a href="https://esbrasilonline.com/#/">Es Brasil</a></li>
+                        <li><a href="javascript:void(0);" @onclick="goLoker">Loker</a></li>
+                        <li><a href="https://bogorstudio.com/">Bogor Studio</a></li>
+                    </ul>
+                </section>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <!-- Account / Shipping Info-->
+                <section class="widget widget-links widget-light-skin">
+                    <h3 class="widget-title">Support</h3>
+                    <ul>
+                        <li><a href="javascript:void(0);" @onclick="goLogin">Log In</a></li>
+                        <li><a href="javascript:void(0);" @onclick="goLogin">Sign Up</a></li> 
+                        <li><a href="javascript:void(0);" @onclick="goProfile">Your Account</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <hr class="hr-light mt-2 margin-bottom-2x">
+  @*      <div class="row">
+            <div class="col-md-7 padding-bottom-1x"></div>
+            <div class="col-md-5 padding-bottom-1x">
+                <div class="margin-top-1x hidden-md-up"></div>
+                <!--Subscription-->
+                <form class="subscribe-form" action="#" method="post" target="_blank" novalidate="">
+                    <div class="clearfix">
+                        <div class="input-group input-light">
+                            <input class="form-control" type="email" name="EMAIL" placeholder="Your e-mail"><span class="input-group-addon"><i class="icon-mail"></i></span>
+                        </div>
+                        <button class="btn btn-primary mt-2" type="submit">Suscbribe</button>
+                    </div><span class="form-text text-sm text-white opacity-50">Berlangganan Newsletter kami untuk menerima penawaran diskon awal, berita terbaru, informasi penjualan dan promo.</span>
+                </form>
+            </div>
+        </div>*@
+        <!-- Copyright-->
+        <p class="footer-copyright">&copy; 2022 All rights reserved Es Brasil Create by &#10084; BogorStudio.</p>
+    </div>
+</footer>
+@code {
+    protected void goLogin()
+    {
+        NavigationManager.NavigateTo("/pelamarLogin");
+    }
+    protected void goHome()
+    {
+        NavigationManager.NavigateTo("/homeLoker");
+    }
+    protected void goLoker()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+    protected void goHistoryApply()
+    {
+        NavigationManager.NavigateTo("/pelamarHistoryApply");
+    }
+    protected void goProfile()
+    {
+        NavigationManager.NavigateTo("/PelamarEdit");
+    }
+}

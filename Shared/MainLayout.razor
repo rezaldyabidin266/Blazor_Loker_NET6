@@ -1,0 +1,111 @@
+﻿@using BlazorLoker2022.Pages.Component
+@inherits LayoutComponentBase
+@inject IJSRuntime Js
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject NavigationManager navigationManager
+
+<style>
+    .layout-main {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+    .navbar-layout {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .contant {
+        min-height: calc(100vh - 70px);
+    }
+
+    .bagian-footer {
+    }
+
+    @@media (max-width: 575.98px) {
+        .contant{
+
+        }
+
+        .contant .toast{
+            width:100%;
+        }
+
+        .bagian-footer {
+        }
+    }
+
+    @@media (max-width: 767.98px) {
+    }
+
+    @@media (max-width: 991.98px) {
+    }
+
+    @@media (max-width: 1199.98px) {
+    }
+
+    @@media (max-width: 1399.98px) {
+    }
+</style>
+
+<div class="layout-main">
+    <div class="navbar-layout">
+        <Navbar></Navbar>
+    </div>
+    <div class="contant">
+        @Body
+
+        @if (online != "true")
+        {
+            <div class="position-fixed bottom-0 end-0" style="z-index: 11">
+                <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-dark text-white">
+                        <p class="me-auto m-0">Sambungan ke internet</p>
+                    </div>
+                    <div class="toast-body bg-white">
+                        Anda sedang offline. Periksa koneksi Anda.
+                    </div>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-primary text-white">
+                        <p class="me-auto m-0">Sambungan ke internet 2</p>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body bg-white">
+                        Anda sedang offline. Periksa koneksi Anda.
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="bagian-footer">
+        <Footer2></Footer2>
+    </div>
+</div>
+
+@code {
+
+    protected string online;
+    protected override async Task OnInitializedAsync()
+    {
+        online = await LocalStorage.GetItemAsync<string>("online");
+        //@if (online != "true")
+        //{
+        //navigationManager.NavigateTo($"/offlinePage");
+        //}
+        //else 
+        //{
+        //navigationManager.NavigateTo($"/");
+        //await Js.InvokeVoidAsync("history.back");
+        //}
+    }
+
+}
+
+

@@ -1,0 +1,110 @@
+﻿@inherits ComponentEditProfileBase
+
+<style>
+/*    .text-area-custom {
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+        .text-area-custom:focus {
+            box-shadow: none;
+        }
+
+    .border-none {
+        border: none;
+    }
+
+    .form-custom:after {
+        display: block;
+        content: '';
+        border-bottom: solid 2px #019fb6;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .form-custom:hover:after {
+        transform: scaleX(1);
+    }*/
+</style>
+
+<div class="edit-form">
+    <h5 class="">Edit Profile</h5>
+    <EditForm EditContext="updatePelamarContext">
+        <DataAnnotationsValidator />
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Nama Lengkap</label>
+            <DxTextBox NullText="Jawaban Anda"
+                       CssClass="form-custom"
+                       InputCssClass="text-area-custom"
+                       @bind-Text="@getPelamarData.nama"
+                       BindValueMode="BindValueMode.OnInput"
+                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Bio</label>
+            <DxMemo Rows="3"
+                    NullText="Jawaban Anda"
+                    CssClass="form-custom"
+                    TextAreaCssClass="text-area-custom"
+                    ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                    @bind-Text="@getPelamarData.note" />
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Email</label>
+            <DxTextBox NullText="Jawaban Anda"
+                       CssClass="form-custom"
+                       InputCssClass="text-area-custom"
+                       @bind-Text="@getPelamarData.email"
+                       BindValueMode="BindValueMode.OnInput"
+                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Telepon</label>
+            <DxTextBox NullText="Jawaban Anda"
+                       CssClass="form-custom"
+                       InputCssClass="text-area-custom"
+                       @bind-Text="@getPelamarData.noTlp"
+                       BindValueMode="BindValueMode.OnInput"
+                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Tempat Lahir</label>
+            <DxTextBox NullText="Jawaban Anda"
+                       CssClass="form-custom"
+                       InputCssClass="text-area-custom"
+                       @bind-Text="@getPelamarData.tempatLahir"
+                       BindValueMode="BindValueMode.OnInput"
+                       ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Tanggal Lahir</label>
+            <DxDateEdit Mask="dd/MMMM/yyyy"
+                        @bind-Date="@getPelamarData.tglLahir"
+                        PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                        FirstDayOfWeek="DayOfWeek.Monday"
+                        CssClass="form-custom"
+                        InputCssClass="text-area-custom"
+                        ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+            </DxDateEdit>
+        </div>
+        <div class="jarak">
+            <label for="exampleFormControlInput1" class="form-label">Alamat</label>
+            <DxMemo Rows="3"
+                    NullText="Jawaban Anda"
+                    CssClass="form-custom"
+                    TextAreaCssClass="text-area-custom"
+                    ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                    @bind-Text="@getPelamarData.alamat" />
+        </div>
+    </EditForm>
+    <DxButton RenderStyle="ButtonRenderStyle.Primary"
+              Text="Simpan perubahan"
+              Click="kirimUpdatePelamar">
+    </DxButton>
+
+</div>
+
+@code {
+
+}

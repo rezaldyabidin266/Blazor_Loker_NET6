@@ -1,0 +1,324 @@
+﻿@page "/Upload/{idLoker:int}"
+@using BlazorLoker2022.Shared.Pelamar
+@layout PelamarQuizLayout
+@inherits PelamarUploadBase
+
+<style>
+    .text-area-custom {
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.12);
+    }
+
+        .text-area-custom:focus {
+            box-shadow: none;
+        }
+
+    .border-none {
+        border: none;
+    }
+
+    .form-custom:after {
+        display: block;
+        content: '';
+        border-bottom: solid 2px #019fb6;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+    }
+
+    .form-custom:hover:after {
+        transform: scaleX(1);
+    }
+
+    .validation-message {
+        color: red;
+        font-family: 'Poppins', sans-serif;
+    }
+</style>
+
+<PageTitle>Pelamar Upload</PageTitle>
+
+<div class="pelamar-upload">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 mx-auto">
+                <div class="nama-upload">
+                    <h1>@infoLoker.judul - Brasil Loker</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="upload-container">
+        <div class="container">
+            <div class="row upload">
+                <div class="col-md-9 mx-auto">
+                    <h4>Upload Biodata</h4>
+                    <div class="card card-upload">
+                        <div class="card-body">
+                            <div class="card-pertanyaan">
+                                Kirim Foto<span class="star">*</span>
+                            </div>
+                            <div class="card-jawaban" id="DropZoneUploadFoto">
+                                <button id="btnUploadFoto" class="btn-custom btn btn-light btn">
+                                    <span><i class="fas fa-paperclip"></i></span> Kirim Foto
+                                </button>
+                                <div class="uploadHide">
+                                    <DxUpload Name="MyFile"
+                                              Visible="@UploadVisible"
+                                              ExternalSelectButtonCssSelector="#btnUploadFoto"
+                                              ExternalDropZoneCssSelector="#DropZoneUploadFoto"
+                                              MaxFileSize="15000000"
+                                              ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                              UploadUrl="@Url(urlFoto)"
+                                              SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                              FileUploadStart="@SettingHeaderFoto"
+                                              FileUploadError="@ErrorHandling"
+                                              CssClass="w-100"
+                                              AllowMultiFileUpload="true"
+                                              ShowFileList="false"
+                                              FileUploaded="@UploadSuksesFoto"
+                                              AllowedFileExtensions="@(new List<string> { ".jpg", ".jpeg", ".png" })"
+                                              AcceptedFileTypes="@(new List<string> { ".jpg", ".jpeg", ".png" })">
+                                    </DxUpload>
+                                </div>
+                                <small>Format: .jpg, .png, .jpeg</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-upload">
+                        <div class="card-body">
+                            <div class="card-pertanyaan">
+                                Kirim Resume/Cv<span class="star">*</span>
+                            </div>
+                            <div class="card-jawaban" id="DropZoneUploadCv">
+                                <button id="btnUploadCv" class="btn-custom btn btn-light btn">
+                                    <span><i class="fas fa-paperclip"></i></span> Kirim Resume/Cv
+                                </button>
+                                <div class="uploadHide">
+                                    <DxUpload Name="MyFile"
+                                              Visible="@UploadVisible"
+                                              ExternalSelectButtonCssSelector="#btnUploadCv"
+                                              ExternalDropZoneCssSelector="#DropZoneUploadCv"
+                                              MaxFileSize="15000000"
+                                              ExternalDropZoneDragOverCssClass="bg-light border-secondary text-dark"
+                                              UploadUrl="@Url(urlCv)"
+                                              SelectedFilesChanged="@SelectedFilesChangedAwal"
+                                              FileUploadStart="@SettingHeaderCv"
+                                              FileUploadError="@ErrorHandling"
+                                              CssClass="w-100"
+                                              AllowMultiFileUpload="true"
+                                              ShowFileList="false"
+                                              FileUploaded="@UploadSuksesCv"
+                                              AllowedFileExtensions="@(new List<string> { ".pdf"})"
+                                              AcceptedFileTypes="@(new List<string> { ".pdf"})">
+                                    </DxUpload>
+                                </div>
+                                <small>Format: .pdf</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="history-kerja-container">
+        <div class="container">
+            <div class="row history-kerja">
+                <div class="col-md-9 mx-auto">
+                    <h4>Pengalaman Kerja</h4>
+                    <div class="peringatan mb-2">
+                        <p><span class="text-danger">●</span> Menambahkan pengalaman kerja menjadikan nilai tambah.</p>
+                    </div>
+                    <EditForm EditContext="HistoryKerjaContext">
+                        <DataAnnotationsValidator />
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Nama Perusahaan<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarAddHistoryKerjaClass.tempatKerja"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.tempatKerja)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Posisi/Jabatan<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarAddHistoryKerjaClass.posisi"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.posisi)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tugas/Jobdesk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxTextBox NullText="Jawaban Anda"
+                                               CssClass="form-custom"
+                                               InputCssClass="text-area-custom"
+                                               @bind-Text="@pelamarAddHistoryKerjaClass.tugas"
+                                               BindValueMode="BindValueMode.OnInput"
+                                               ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto" />
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.tugas)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Salary Terakhir<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxSpinEdit @bind-Value="@pelamarAddHistoryKerjaClass.salaryTerakhir"
+                                                BindValueMode="BindValueMode.OnInput"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                Mask="Rp #,#########"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto"
+                                                MinValue="0" />
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.salaryTerakhir)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tanggal Pertama Masuk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxDateEdit Mask="dd/MMMM/yyyy"
+                                                @bind-Date="@pelamarAddHistoryKerjaClass.tglAwal"
+                                                PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                                FirstDayOfWeek="DayOfWeek.Monday"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                        <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                    </DxDateEdit>
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.tglAwal)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-history">
+                            <div class="card-body">
+                                <div class="card-pertanyaan">
+                                    Tanggal Keluar/Resign Masuk<span class="star">*</span>
+                                </div>
+                                <div class="card-jawaban">
+                                    <DxDateEdit Mask="dd/MMMM/yyyy"
+                                                @bind-Date="@pelamarAddHistoryKerjaClass.tglAkhir"
+                                                PickerDisplayMode="DatePickerDisplayMode.Calendar"
+                                                FirstDayOfWeek="DayOfWeek.Monday"
+                                                CssClass="form-custom"
+                                                InputCssClass="text-area-custom"
+                                                ClearButtonDisplayMode="DataEditorClearButtonDisplayMode.Auto">
+                                        <DxDateTimeMaskProperties CaretMode="@MaskCaretMode.Advancing" />
+                                    </DxDateEdit>
+                                    <ValidationMessage For="@(() => pelamarAddHistoryKerjaClass.tglAkhir)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-apply">
+                            <DxButton Text="Kembali" onclick="history.back()" IconCssClass="fas fa-angle-double-left fa-sm me-1" CssClass="me-2" RenderStyle="ButtonRenderStyle.Secondary" SizeMode="SizeMode.Medium">
+                            </DxButton>
+                            <DxButton Text="Pengalaman" IconCssClass="fas fa-plus fa-sm me-1" Click="kirimHistory" RenderStyle="ButtonRenderStyle.Primary" SizeMode="SizeMode.Medium">
+                            </DxButton>
+                        </div>
+                        <div class="button-apply mt-4">
+                            <DxButton NavigateUrl="PelamarEdit" Text="Kirim Lamaran" IconCssClass="fas fa-check fa-sm me-1" CssClass="me-2" RenderStyle="ButtonRenderStyle.Success" SizeMode="SizeMode.Medium">
+                            </DxButton>
+                        </div>
+                        <div class="peringatan">
+                            <p>Jangan pernah mengirimkan sandi melalui Formulir.</p>
+                        </div>
+                        <h4>Data Pengalaman Kerja</h4>
+                        @if (pelamarHistoryKerjaList.Count == 0)
+                        {
+                            <div class="alert alert-primary d-flex align-items-center" role="alert">
+                                   <i class="fas fa-info-circle fa-lg me-2"></i>
+                                <div>
+                                   Belum menambahkan pengalaman kerja
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="row history-item">
+                                @foreach (var item in pelamarHistoryKerjaList)
+                                {
+                                    <div class="col-md-6 col-lg-4 item">
+                                        <div class="card card-item">
+                                            <div class="card-body">
+                                                <ul class="task-list">
+                                                    <li>
+                                                        <i class="task-icon fas fa-building"></i>
+                                                        <h6>Nama Perusahaan</h6>
+                                                        <p class="text-muted">@item.tempatKerja</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-user-tie"></i>
+                                                        <h6>Posisi/Jabatan</h6>
+                                                        <p class="text-muted">@item.posisi</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-hand-holding-usd"></i>
+                                                        <h6>Salary</h6>
+                                                        <p class="text-muted">Rp @item.salaryTerakhir.ToString("n0")</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-briefcase"></i>
+                                                        <h6>Tugas/Jobdesc</h6>
+                                                        <p class="text-muted">@item.tugas</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-calendar-plus"></i>
+                                                        <h6>Tanggal Masuk</h6>
+                                                        <p class="text-muted">@item.tglAwal.ToString("dd-MMMM-yyyy")</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-calendar-minus"></i>
+                                                        <h6>Tanggal Keluar/Resign</h6>
+                                                        <p class="text-muted">@item.tglAkhir.ToString("dd-MMMM-yyyy")</p>
+                                                    </li>
+                                                    <li>
+                                                        <i class="task-icon fas fa-calendar-alt"></i>
+                                                        <h6>Lama Bekerja</h6>
+                                                        <p class="text-muted">@item.lamaKerja</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        }
+                        <div class="copywriting">
+                            <p><span>@infoLoker.judul</span> Formulir</p>
+                        </div>
+                    </EditForm>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    }

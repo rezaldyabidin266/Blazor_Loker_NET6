@@ -1,0 +1,151 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = BlazorLoker2022
+build_property.RootNamespace = BlazorLoker2022
+build_property.ProjectDir = D:\VisualStudio2020\BlazorLoker2022\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\VisualStudio2020\BlazorLoker2022
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/VisualStudio2020/BlazorLoker2022/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/Navbar.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XE5hdmJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Shared/Pelamar/PelamarLoginLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBlbGFtYXJcUGVsYW1hckxvZ2luTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Shared/Pelamar/PelamarNavbar.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBlbGFtYXJcUGVsYW1hck5hdmJhci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Shared/Pelamar/PelamarNavbarQuiz.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBlbGFtYXJcUGVsYW1hck5hdmJhclF1aXoucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Shared/Pelamar/PelamarQuizLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBlbGFtYXJcUGVsYW1hclF1aXpMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Biodata/PelamarUpload.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmlvZGF0YVxQZWxhbWFyVXBsb2FkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-2e5a0w8001
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/CardHistoryKerja.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XENhcmRIaXN0b3J5S2VyamEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-zko13bzupy
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/ComponentEditProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XENvbXBvbmVudEVkaXRQcm9maWxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-yth5ww87tt
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/ComponentHistoryApply.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XENvbXBvbmVudEhpc3RvcnlBcHBseS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-hc89vxx64q
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/ComponentPengalaman.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XENvbXBvbmVudFBlbmdhbGFtYW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-0gbp8b4sjh
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/Error404.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XEVycm9yNDA0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4a031wtxp9
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XEZvb3Rlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-0wa2s11zqp
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Component/Footer2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29tcG9uZW50XEZvb3RlcjIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-x14glgdgeg
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-jbrsn54noa
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarBuatPassworBaru.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hckJ1YXRQYXNzd29yQmFydS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-cfzpmt07hr
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarEditHistoryKerja.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hckVkaXRIaXN0b3J5S2VyamEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9k6krpgcnx
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarEditProfile.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hckVkaXRQcm9maWxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-68z611taiz
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarLogin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hckxvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-b1ttqnz4n1
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarRegister.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hclJlZ2lzdGVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-kevedpw5la
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarRequestOtpResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hclJlcXVlc3RPdHBSZXNldFBhc3N3b3JkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-39bpteurib
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarResetPassword.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hclJlc2V0UGFzc3dvcmQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-lx9tkyu5bf
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarSetting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hclNldHRpbmcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-eu3wai3l62
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Login/PelamarTambahHistoryKerja.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5cUGVsYW1hclRhbWJhaEhpc3RvcnlLZXJqYS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-w38lqxyoih
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Loker/PelamarHistoryApply.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9rZXJcUGVsYW1hckhpc3RvcnlBcHBseS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-dke2ob0ecj
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Loker/PelamarLoker.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9rZXJcUGVsYW1hckxva2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-xb1l5j69cz
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Loker/PelamarLokerDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9rZXJcUGVsYW1hckxva2VyRGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-stqv89qs9m
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Loker/PelamarLokerHome.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9rZXJcUGVsYW1hckxva2VySG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-glxnmt7wtn
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Offline/Offline.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2ZmbGluZVxPZmZsaW5lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-bmdtmfvqkt
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Quiz/PelamarQuiz.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpelxQZWxhbWFyUXVpei5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-xxj8dc101b
+
+[D:/VisualStudio2020/BlazorLoker2022/Pages/Quiz/PelamarQuizEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUXVpelxQZWxhbWFyUXVpekVkaXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-mo9h67ihjm
+
+[D:/VisualStudio2020/BlazorLoker2022/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-w3ycnxkd2h

@@ -1,0 +1,378 @@
+﻿@inject IJSRuntime js
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inherits PelamarNavbarQuizBase
+<style>
+
+    .navbar {
+        left: 0;
+        top: 0;
+        padding: 0;
+        width: 100%;
+        transition: background 0.6s ease-in;
+        background-color: white;
+    }
+
+        .navbar .navbar-brand {
+            color: black;
+        }
+
+        .navbar .navbar-toggler {
+            position: relative;
+            height: 50px;
+            width: 50px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+        }
+
+            .navbar .navbar-toggler:focus,
+            .navbar .navbar-toggler:active,
+            .navbar .navbar-toggler-icon:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+            .navbar .navbar-toggler .menu-icon-bar {
+                position: absolute;
+                left: 15px;
+                right: 15px;
+                height: 2px;
+                background-color: #fff;
+                opacity: 0;
+                -webkit-transform: translateY(-1px);
+                -ms-transform: translateY(-1px);
+                transform: translateY(-1px);
+                transition: all 0.3s ease-in;
+            }
+
+                .navbar .navbar-toggler .menu-icon-bar:first-child {
+                    opacity: 1;
+                    -webkit-transform: translateY(-1px) rotate(45deg);
+                    -ms-sform: translateY(-1px) rotate(45deg);
+                    transform: translateY(-1px) rotate(45deg);
+                }
+
+                .navbar .navbar-toggler .menu-icon-bar:last-child {
+                    opacity: 1;
+                    -webkit-transform: translateY(-1px) rotate(135deg);
+                    -ms-sform: translateY(-1px) rotate(135deg);
+                    transform: translateY(-1px) rotate(135deg);
+                }
+
+            .navbar .navbar-toggler.collapsed .menu-icon-bar {
+                opacity: 1;
+            }
+
+                .navbar .navbar-toggler.collapsed .menu-icon-bar:first-child {
+                    -webkit-transform: translateY(-7px) rotate(0);
+                    -ms-sform: translateY(-7px) rotate(0);
+                    transform: translateY(-7px) rotate(0);
+                }
+
+                .navbar .navbar-toggler.collapsed .menu-icon-bar:last-child {
+                    -webkit-transform: translateY(5px) rotate(0);
+                    -ms-sform: translateY(5px) rotate(0);
+                    transform: translateY(5px) rotate(0);
+                }
+
+    .navbar-dark .navbar-nav .nav-link {
+        position: relative;
+        color: black;
+        /*  font-size: 1.6rem;*/
+    }
+
+        .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+            color: purple
+        }
+
+    .navbar .dropdown-menu {
+        padding: 0;
+        background-color: rgba(0, 0, 0, .9);
+    }
+
+        .navbar .dropdown-menu .dropdown-item {
+            position: relative;
+            padding: 10px 20px;
+            color: #fff;
+            /*   font-size: 1.4rem;*/
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+            transition: color 0.2s ease-in;
+        }
+
+            .navbar .dropdown-menu .dropdown-item:last-child {
+                border-bottom: none;
+            }
+
+            .navbar .dropdown-menu .dropdown-item:hover {
+                background: transparent;
+                color: #c0ca33;
+            }
+
+            .navbar .dropdown-menu .dropdown-item::before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                top: 0;
+                width: 5px;
+                background-color: #c0ca33;
+                opacity: 0;
+                transition: opacity 0.2s ease-in;
+            }
+
+            .navbar .dropdown-menu .dropdown-item:hover::before {
+                opacity: 1;
+            }
+
+    .navbar.fixed-top {
+        position: fixed;
+        -webkit-animation: navbar-animation 0.5s;
+        animation: navbar-animation 0.5s;
+        background-color: white;
+    }
+
+        .navbar.fixed-top.navbar-dark .navbar-nav .nav-link.active {
+            color: #c0ca33;
+        }
+
+        .navbar.fixed-top.navbar-dark .navbar-nav .nav-link::after {
+            background-color: #c0ca33;
+        }
+
+    .content {
+        padding: 120px 0;
+    }
+
+    @@media screen and (max-width: 768px) {
+        .navbar-brand {
+            margin-left: 20px;
+        }
+
+        .navbar-nav {
+            padding: 0 20px;
+            padding-bottom: 20px;
+            padding-top: 5px;
+        }
+
+        .navbar.fixed-top .navbar-nav {
+            background: transparent;
+        }
+    }
+
+    @@media screen and (min-width: 767px) {
+        .banner {
+            padding: 0 150px;
+        }
+
+            .banner h1 {
+                font-size: 5rem;
+            }
+
+            .banner p {
+                font-size: 2rem;
+            }
+
+        .navbar-dark .navbar-nav .nav-link {
+            padding: 23px 15px;
+        }
+
+            .navbar-dark .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 15px;
+                left: 30%;
+                right: 30%;
+                height: 1px;
+                background-color: #fff;
+                -webkit-transform: scaleX(0);
+                -ms-transform: scaleX(0);
+                transform: scaleX(0);
+                transition: transform 0.1s ease-in;
+            }
+
+            .navbar-dark .navbar-nav .nav-link:hover::after {
+                -webkit-transform: scaleX(1);
+                -ms-transform: scaleX(1);
+                transform: scaleX(1);
+            }
+
+        .dropdown-menu {
+            min-width: 200px;
+            -webkit-animation: dropdown-animation 0.3s;
+            animation: dropdown-animation 0.3s;
+            -webkit-transform-origin: top;
+            -ms-transform-origin: top;
+            transform-origin: top;
+        }
+    }
+
+    @@-webkit-keyframes navbar-animation {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes navbar-animation {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+    }
+
+    @@-webkit-keyframes dropdown-animation {
+        0% {
+            -webkit-transform: scaleY(0);
+            -ms-transform: scaleY(0);
+            transform: scaleY(0);
+        }
+
+        75% {
+            -webkit-transform: scaleY(1.1);
+            -ms-transform: scaleY(1.1);
+            transform: scaleY(1.1);
+        }
+
+        100% {
+            -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+    }
+
+    @@keyframes dropdown-animation {
+        0% {
+            -webkit-transform: scaleY(0);
+            -ms-transform: scaleY(0);
+            transform: scaleY(0);
+        }
+
+        75% {
+            -webkit-transform: scaleY(1.1);
+            -ms-transform: scaleY(1.1);
+            transform: scaleY(1.1);
+        }
+
+        100% {
+            -webkit-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+            transform: scaleY(1);
+        }
+    }
+
+    .navbar .navbar-toggler .menu-icon-bar {
+        background: black !important;
+    }
+</style>
+
+
+<nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+        <a href="#" class="navbar-brand">Brasil Loker</a>
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#main-nav">
+            <span class="menu-icon-bar"></span>
+            <span class="menu-icon-bar"></span>
+            <span class="menu-icon-bar"></span>
+        </button>
+        <div id="main-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <li>
+                    <a class="nav-item nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="javascript:void(0);" @onclick="goLoker">
+                        <i class="far fa-briefcase" style="font-size:16px;"></i> Loker
+                    </a>
+                </li>
+                @* jika sudah login*@
+                @if (token != null)
+                {
+                    <li class="dropdown">
+                        <a href="#" class="nav-item nav-link" data-bs-toggle="dropdown">
+                            <i class="far fa-user" style="font-size:16px;"></i>Menu
+                        </a>
+                        <div class="dropdown-menu">
+                            <a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" href="javascript:void(0);" @onclick="goProfile" class="dropdown-item">
+                                <i class="fal fa-address-card me-1" style="font-size:17px;"></i> Profile
+                            </a>
+                            <a data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" class="dropdown-item" href="javascript:void(0);" @onclick="goSetting">
+                                <i class="far fa-cog me-1" style="font-size:17px;"></i>Edit Password
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-item nav-link" href="javascript:void(0);" @onclick="goLogout">
+                            <i class="fal fa-sign-out-alt me-1" style="font-size:16px;"></i>Logout
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        <a class="nav-item nav-link" href="javascript:void(0);" @onclick="goLogin">
+                            <i class="far fa-sign-in-alt me-1" style="font-size:16px;"></i>Login
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-item nav-link" href="javascript:void(0);" @onclick="goRegister">
+                            <i class="far fa-user-plus me-1" style="font-size:16px;"></i>Register
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
+
+@code {
+    protected string? token;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+    }
+    protected void goRegister()
+    {
+        NavigationManager.NavigateTo("/register");
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        token = await LocalStorage.GetItemAsync<string>("token");
+    }
+    protected void goLogin()
+    {
+        NavigationManager.NavigateTo("/pelamarLogin");
+    }
+    protected void goHome()
+    {
+        NavigationManager.NavigateTo("/homeLoker");
+    }
+    protected void goLoker()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+    protected void goSetting()
+    {
+        NavigationManager.NavigateTo("/pelamarSetting");
+    }
+    protected void goProfile()
+    {
+        NavigationManager.NavigateTo("/PelamarEdit");
+    }
+}
+

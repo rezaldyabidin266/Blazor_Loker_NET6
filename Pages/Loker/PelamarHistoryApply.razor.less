@@ -1,0 +1,286 @@
+﻿.history-apply-container {
+    // Color variables (appears count calculates by raw css)
+    @color0: #daceb7; // Appears 3 times
+    @color1: #535665; // Appears 2 times
+    @color2: #282c3f; // Appears 2 times
+    @color3: #000000; // Appears 2 times
+    height: 100vh;
+    padding-top: 2rem;
+    background: #E9ECF2;
+
+    .payments-item {
+        img.mr-3 {
+            width: 47px;
+        }
+
+        .media {
+            align-items: center;
+
+            img {
+                margin: 0 40px 0 11px !important;
+            }
+        }
+    }
+
+    .order-list {
+        .btn {
+            border-radius: 2px;
+            font-size: 13px;
+            min-width: 121px;
+            padding: 7px 0 7px 0;
+        }
+
+        img.mr-4 {
+            border-radius: 2px;
+            box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+            height: 70px;
+            object-fit: cover;
+            width: 70px;
+        }
+    }
+
+    .osahan-account-page-left {
+        .osahan-padding {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 1rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #E9ECF2;
+
+            .osahan-user {
+                .osahan-user-media {
+                    .osahan-user-media-body {
+
+                        h6 {
+                            color: #202124;
+                            letter-spacing: .1px;
+                            font-size: 0.9rem;
+
+                            span {
+                                font-size: .75em;
+                            }
+                        }
+
+                        .tlpn {
+                            color: #202124;
+                            font-size: 0.9rem;
+                        }
+
+                        .gmail {
+                            color: #202124;
+                            font-size: 0.9rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .rinci {
+            border: none !important;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-top: 1rem;
+
+            .nav-item {
+                .nav-link {
+                    color: #202124;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+        .nav-link {
+            border: none;
+            color: @color1;
+            font-weight: 600;
+            padding: 18px 20px;
+
+            i {
+                background: @color1;
+                border-radius: 50px;
+                color: #ffffff;
+                display: inline-block;
+                font-size: 15px;
+                height: 28px;
+                line-height: 29px;
+                margin: 0 7px 0 0px;
+                text-align: center;
+                width: 28px;
+            }
+        }
+
+        .nav-link.active {
+            background: #f3f7f8;
+            color: @color2 !important;
+
+            i {
+                background: @color2 !important;
+            }
+        }
+    }
+
+    .osahan-account-page-right {
+
+        .card-history {
+            h4 {
+                font-family: 'Lato', sans-serif;
+                text-transform: none;
+                letter-spacing: 0px;
+                color: #515357;
+                font-weight: 400;
+            }
+
+            .history-item {
+                .members {
+                    .media {
+                        .media-body {
+                            h6 {
+                                font-size: 1.2rem;
+                                font-weight: normal;
+                                font-family: 'Lato', sans-serif;
+                                text-transform: none;
+                                letter-spacing: 0px;
+                                color: #515357;
+
+                                span {
+                                    font-size: 0.8rem;
+                                    font-family: 'Open Sans', sans-serif;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .osahan-user-media {
+        img {
+            vertical-align: middle;
+            border-style: none;
+            width: 128px;
+            aspect-ratio: auto 128 / 128;
+            height: 128px;
+            box-shadow: 0px 3.6px 4.2px rgba(0, 0, 0, 0.032), 0px 4.6px 8.5px rgba(0, 0, 0, 0.043), 0px 5.2px 12.9px rgba(0, 0, 0, 0.05), 0px 5.6px 17.7px rgba(0, 0, 0, 0.058), 0px 6px 24px rgba(0, 0, 0, 0.08) !important;
+        }
+    }
+
+    .card {
+        offer-card {
+            h5.card-title {
+                border: 2px dotted @color3;
+            }
+        }
+    }
+
+    .card.offer-card {
+        h5 {
+            background: #fffae6;
+            border-radius: 2px;
+            border: 1px dotted @color0;
+            color: #17a2b8;
+            display: inline-table;
+            font-size: 15px;
+            margin: 0 0 19px 0;
+            padding: 6px 10px 6px 6px;
+            position: relative;
+
+            img {
+                border-radius: 2px;
+                height: 22px;
+                margin: 0 8px 0 0;
+                object-fit: cover;
+                width: 22px;
+            }
+
+            &:after {
+                border-bottom: 4px solid @color0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                bottom: 0;
+                content: "";
+                left: 30px;
+                position: absolute;
+            }
+
+            &:before {
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 4px solid @color0;
+                content: "";
+                left: 30px;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+
+    .reviews-members {
+        .media {
+            .mr-3 {
+                height: 56px;
+                object-fit: cover;
+                width: 56px;
+            }
+        }
+    }
+
+    .osahan-cart-item {
+        p.text-gray.float-right {
+            font-size: 12px;
+            margin: 3px 0 0 0;
+        }
+
+        .food-item {
+            vertical-align: bottom;
+        }
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+        color: @color3;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+    }
+
+    .rounded-pill {
+        border-radius: 50rem !important;
+    }
+
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+
+// X-Large devices (large desktops, less than 1400px)
+@media (max-width: 1399.98px) {
+}
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+}
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) {
+}
+
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+    .history-apply-container {
+        height: 100%;
+        padding-bottom: 2rem;
+
+        .osahan-account-page-left {
+        }
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+}

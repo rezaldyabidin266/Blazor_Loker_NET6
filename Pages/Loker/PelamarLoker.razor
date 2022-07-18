@@ -1,0 +1,153 @@
+﻿@page "/loker"
+
+@inherits PelamarLokerBase
+
+<PageTitle>Loker</PageTitle>
+
+<style>
+</style>
+
+<div class="loker">
+    <div class="container">
+        <div class="row title">
+            <div class="col-lg-10 mx-auto mb-2">
+                <div class="section-title text-center">
+                    <h3>Lowongan Kerja di Es Brasil</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-xl-3 sub-left">
+                <blockquote @onclick="refreshMotivasi" class="blockquote blockquote-custom bg-white p-5 shadow rounded">
+                    <div class="blockquote-custom-icon bg-info shadow-sm">
+                        <i class="fa fa-quote-left text-white"></i>
+                    </div>
+                    <p class="mb-0">
+                        @kalimatMotivasi
+                    </p>
+                </blockquote>
+                <div>
+                    <img @onclick="refreshMotivasi" class="d-none d-lg-block img-thumbnail rounded img-fluid shadow" src="@gambarMotivasi" />
+                </div>
+            </div>
+            <div class="col-lg-9 col-xl-9">
+                <div class="card-loker">
+                    <div class="filter-result">
+                        <div class="bungkus-posisi d-flex flex-wrap align-items-center">
+                            <p class="posisi">
+                                Posisi Tersedia:
+                            </p>
+                            <div class="badge bg-dark">@lokerOpen.Count Posisi</div>
+                        </div>
+                        @if (!spinning)
+                        {
+                            @if (lokerOpen.Count != 0)
+                            {
+                                @foreach (var item in lokerOpen.OrderBy(x => x.idLoker))
+                                {
+                                    <div class="card b-1 hover-shadow mb-20">
+                                        <div class="row card-body ps-4 pe-5" @onclick="() => goLokerDetail(item.idLoker)">
+                                            <div class="col-md-2 col-12 d-flex justify-content-center justify-content-md-start">
+                                                <img class="avatar avatar-xl rounded" src="@imageIlustrasi[item.idLoker]" alt="...">
+                                            </div>
+                                            <div class="col-md-8 col-12 p-0 pt-3 pt-sm-1 ">
+                                                <div class="mb-2">
+                                                    <span class="fs-20 pr-16 judul">@item.judul</span>
+                                                </div>
+                                                @{
+                                                    const int MaxLength = 5;
+                                                    string subsKeterangan;
+                                                    subsKeterangan = item.keterangan.Substring(0, Math.Min(100, item.keterangan.Length));
+                                                    <small class="ls-1 keterangan">@item.keterangan.</small>
+                                                }
+                                            </div>
+                                            <div class="col-md-2 col-12 p-0 mt-1">
+                                                @switch (item.statusLowongan)
+                                                {
+                                                    case "Full Time":
+                                                        <span class="badge bg-success mb-12">@item.statusLowongan</span>
+                                                        break;
+                                                    case "Part Time":
+                                                        <span class="badge bg-danger mb-12">@item.statusLowongan</span>
+                                                        break;
+                                                    case "Full Time / Part Time":
+                                                        <span class="badge bg-primary mb-12">@item.statusLowongan</span>
+                                                        break;
+                                                    default:
+                                                        <span class="badge bg-dark mb-12">None</span>
+                                                        break;
+                                                }
+                                            </div>
+                                        </div>
+                                        <footer class="card-footer flexbox align-items-center">
+                                            <div class="text-start w-100 d-block d-sm-none">
+                                                <DxButton Text="Share"
+                                              RenderStyle="ButtonRenderStyle.Secondary"
+                                              SizeMode="SizeMode.Small"
+                                              IconCssClass="fas fa-share me-1"
+                                              Click="() => shareLink(item.idLoker)"
+                                              RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                                </DxButton>
+                                                <DxButton Text="Lihat"
+                                              RenderStyle="ButtonRenderStyle.Info"
+                                              SizeMode="SizeMode.Small"
+                                              IconCssClass="fas fa-eye me-1"
+                                              Click="() => goLokerDetail(item.idLoker)"
+                                              RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                                </DxButton>
+                                            </div>
+                                            <div class="card-hover-show d-none d-sm-block">
+                                                <DxButton Text="Share"
+                                              RenderStyle="ButtonRenderStyle.Secondary"
+                                              SizeMode="SizeMode.Small"
+                                              Click="() => shareLink(item.idLoker)"
+                                              IconCssClass="fas fa-share me-1"
+                                              RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                                </DxButton>
+
+                                                <DxButton Text="Lihat"
+                                              RenderStyle="ButtonRenderStyle.Info"
+                                              SizeMode="SizeMode.Small"
+                                              IconCssClass="fas fa-eye me-1"
+                                              Click="() => goLokerDetail(item.idLoker)"
+                                              RenderStyleMode="ButtonRenderStyleMode.Contained">
+                                                </DxButton>
+                                            </div>
+                                        </footer>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="noLoker">
+                                    <div class="img-noLoker d-flex justify-content-center">
+                                        <img src="image/desktop/toa/ToaBiru.webp">
+                                    </div>
+                                    <div class="alert alert-dark" role="alert">
+                                        <i class="fas fa-bullhorn me-1 fa-lg"></i>
+                                        Tidak ada Lowongan yang dibuka untuk saat ini.
+                                    </div>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="text-center mt-5">
+                                <span class="spinner-border" role="status" aria-hidden="true"></span>
+                                <p>Loading...</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 d-block d-sm-none img-motivasi-mobile">
+                <img @onclick="refreshMotivasi" class="img-thumbnail rounded img-fluid shadow" src="@gambarMotivasi" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+}
+
